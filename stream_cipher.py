@@ -40,7 +40,7 @@ def encrypt(message, iv):
     # Get the length for the bit string
     bits = len(bin(message)[2:])
 
-    # Generate the bit string
+    # Generate the pad string
     r_alice = random.Random()
     seed = SECRET_KEY ^ iv
     r_alice.seed(seed)
@@ -55,7 +55,7 @@ def decrypt(cipher, iv):
     # Get the length for the bit string
     bits = len(cipher)
 
-    # Generate the bit string
+    # Generate the pad string
     r_bob = random.Random()
     seed = SECRET_KEY ^ iv
     r_bob.seed(seed)
